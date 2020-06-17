@@ -1,0 +1,90 @@
+from tkinter import *
+
+def accion_botones():
+	print(boton1.text)
+
+ventana = Tk() # Principal - ventana
+ventana.title("Ejercicio PYTHON - LoopingBait") # Titulo de la ventana
+ventana.geometry("248x280") # Dimensiones en ancho x alto
+ventana.resizable(False,False) # Impedimos que se pueda modificar la dimensión de la ventana
+ventana.configure(background="black") # Color de fondo
+
+espacio_texto = Entry(ventana,font=("Arial",22)) # Input text, configuración visual | tipografía, tamaño texto, estado = deshabilitar escribir
+espacio_texto.grid(row=1, columnspan=6) # Indicamos en una parrilla la cuadrícula, número de filas y columnas
+#espacio_texto.place(x=1,y=2)
+
+# ---------- LISTAS / ARRAY ----------- #
+
+tecla1 = ["1"," "]
+tecla2 = ["2","A","B","C"]
+tecla3 = ["3","D","E","F"]
+
+tecla4 = ["4","G","H","I"]
+tecla5 = ["5","J","K","L"]
+tecla6 = ["6","M","N","Ñ","O"]
+
+tecla7 = ["7","P","Q","R","S"]
+tecla5 = ["8","T","U","V"]
+tecla5 = ["9","W","X","Y","Z"]
+
+# -------------- INDICES -------------- #
+
+indice = 0
+
+# ------------- FUNCIONES ------------- #
+
+def sms(num):
+
+	global indice
+	global contador
+
+	if (num == 1):
+		contador = 1
+		if (contador < 2):
+			espacio_texto.insert(indice,"1")
+			contador += 1
+			indice += 1
+			if (contador >= 2):
+				espacio_texto.insert(indice," ")
+			indice += 1
+
+	if (num == 2):
+		if (contador <= 1):
+			espacio_texto.insert(indice,"2")
+			contador = contador + 1
+			indice += 1
+			print(contador)
+			contador = contador + 1
+
+		if (contador == 2):
+			espacio_texto.insert(indice,"A")
+			indice += 1
+
+
+	
+
+# ------------- BOTONES ------------- #
+
+Button(ventana, command=lambda:sms(1), text="1\n[ ]", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=2, column=0, sticky=W+E)
+Button(ventana, command=lambda:sms(2), text="2\nABC", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=2, column=1, sticky=W+E)
+Button(ventana, command=lambda:sms(3), text="3\nDEF", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=2, column=2, sticky=W+E)
+
+
+Button(ventana, command=lambda:numeros(4), text="4\nGHI", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=3, column=0, sticky=W+E)
+Button(ventana, command=lambda:numeros(5), text="5\nJKL", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=3, column=1, sticky=W+E)
+Button(ventana, command=lambda:numeros(6), text="6\nMNÑO", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=3, column=2, sticky=W+E)
+
+
+Button(ventana, command=lambda:numeros(7), text="7\nPQRS", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=4, column=0, sticky=W+E)
+Button(ventana, command=lambda:numeros(8), text="8\nTUV", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=4, column=1, sticky=W+E)
+Button(ventana, command=lambda:numeros(9), text="9\nWXYZ", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=4, column=2, sticky=W+E)
+
+Button(ventana, command=lambda:numeros(0), text="0\n.", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=5, column=0, columnspan=3, sticky=W+E)
+
+Button(ventana, command=lambda:ok(1), text="OK", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(columnspan=2, row=6, column=0, sticky=W+E)
+Button(ventana, text="⇽", width=5, bg="#CCEAF1", fg="black", font=("Arial",12,"bold")).grid(row=6, column=2, sticky=W+E)
+
+
+
+
+ventana.mainloop() # Hace que la aplicación se actualice siempre esperando cambios
